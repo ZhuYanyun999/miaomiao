@@ -71,14 +71,47 @@
 						</div>	
 					</div>
 				</div>
+                <div class="city_index">
+					<ul>
+						<li>A</li>
+						<li>B</li>
+						<li>C</li>
+						<li>D</li>
+						<li>E</li>
+					</ul>
+				</div>
 			</div>
 				
 </template>
 
 <script>
 export default {
-    name:'City'
-}
+    name:'City',
+    mounted(){
+        this.axios.get('/data/cityList.json').then((res)=>{
+           // console.log(res);
+		   var msg=res.data.data;
+		   if (msg==='A'){
+			   var id=res.data.data.data.id;
+			   var id=res.data.data.data.nm;
+			   var id=res.data.data.data.py;
+			   var id=res.data.data.data.rank;
+			   var id=res.data.data.data.acronym;
+			   var id=res.data.data.data.chineseFullnm;
+			   var id=res.data.data.data.position;
+			   this.formatCityList(index);
+		   }
+        });
+    },
+	methods:{
+		formatCityList(){
+            var name =[index];
+			for(var i=0;i<index.length;i++){
+				//var firstLetter =
+			}
+		}
+	}
+    }
 </script>
 
 <style scoped>
